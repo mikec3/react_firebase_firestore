@@ -1,7 +1,7 @@
 # React Firebase Firestore Tutorial
 A simple example of a React front end reading and writing to a Firebase Firestore database. API keys not secure.
 
-# API Keys are exposed!
+# API Keys not secure!
 
 ## Video Link
 follow along at: 
@@ -20,6 +20,13 @@ git push -u origin main
 ```
 
 3. Firebase Firestore
+
+```
+npm install firebase --save
+```
+
+Create a Firebase Firestore database
+Register web app and add credentials to firebase_firestore
 
 
 ## Git Branching
