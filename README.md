@@ -1,3 +1,54 @@
+# React Firebase Firestore Tutorial
+A simple example of a React front end reading and writing to a Firebase Firestore database. API keys not secure.
+
+# API Keys are exposed!
+
+## Video Link
+follow along at: 
+
+## Steps I followed
+1. Create a front end & remove the default git repo (we're using git at the root folder of this project)
+```
+  npx create-react-app client
+  cd client
+```
+2. Create a new github repo
+```
+git remote add origin https://github.com/mikec3/react_firebase_firestore.git
+git branch -M main
+git push -u origin main
+```
+
+3. Firebase Firestore
+
+
+## Git Branching
+```
+git checkout new_feature
+
+...do stuff...
+
+git add .
+git commit -m 'added features'
+git push github new_feature
+
+git checkout master
+git merge new_feature
+...commit master...
+
+git push github --delete new_feature
+```
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
