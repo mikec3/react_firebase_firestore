@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, collection, addDoc, getDoc  } from "firebase/firestore";
+import { getFirestore, doc, collection, setDoc, getDoc, updateDoc  } from "firebase/firestore";
 
   // Your web app's Firebase configuration
   // This is apparently safe to upload to VC and web because api permissions are set in firebase console. Approve list IP or domains.
@@ -38,19 +38,24 @@ const getHighscore = async () => {
 	}
 }
 
-const inputHighscore = async (newScore) => {
+const uploadHighscore = async (newScore) => {
 	try {
-  const docRef = await addDoc(collection(db, "Highscore/Current"), {
-    score: newScore
-  });
-  console.log("Document written with ID: ", docRef.id);
-} catch (e) {
-  console.error("Error adding document: ", e);
-}
+
+		 const docRef = doc(db, "Highscore", "Current")
+
+		 let result = await updateDoc(docRef, {
+		    score: newScore
+		  });
+		  
+		 return newScore;
+	} catch (e) {
+  		console.error("Error adding document: ", e);
+  		return e;
+	}
 }
 
 
 export {
 getHighscore
-, inputHighscore
+, uploadHighscore
 };

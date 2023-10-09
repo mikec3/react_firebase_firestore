@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import InputHighscore from './InputHighscore'
-import {getHighscore} from './firebase_firestore'
+import {getHighscore, uploadHighscore} from './firebase_firestore'
 
 function Highscore() {
 
@@ -17,10 +17,15 @@ useEffect(()=> {
 
 }, [])
 
+const handleNewScore = async (newScore) => {
+	let result = await uploadHighscore(newScore);
+	setCurrentHighscore(result);
+}
+
   return (
     <div>
       <h3> Current High Score: {currentHighscore} </h3>
-      <InputHighscore/>
+      <InputHighscore passUpNewScore={handleNewScore}/>
     </div>
   );
 }
