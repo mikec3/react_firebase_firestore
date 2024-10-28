@@ -1,5 +1,4 @@
 import {useEffect, useState} from 'react'
-import InputHighscore from './InputHighscore'
 import {getHighscore, uploadHighscore} from './firebase_firestore'
 
 function Highscore() {
@@ -17,15 +16,19 @@ useEffect(()=> {
 
 }, [])
 
-const handleNewScore = async (newScore) => {
-	let result = await uploadHighscore(newScore);
-	setCurrentHighscore(result);
+const handleFormSubmission = async (event) => {
+	event.preventDefault();
+	let result = await uploadHighscore(event.target.newScore.value);
+	setCurrentHighscore(event.target.newScore.value);
 }
 
   return (
     <div>
-      <h3> Current High Score: {currentHighscore} </h3>
-      <InputHighscore passUpNewScore={handleNewScore}/>
+      	<h3> Current High Score: {currentHighscore} </h3>
+		<form onSubmit={handleFormSubmission}> <h3> Next High Score: </h3>
+		<input style={{width: '150px'}} type="number" id="newScore" placeholder={0} />
+		<button type="Submit"> Submit </button>
+		</form>
     </div>
   );
 }

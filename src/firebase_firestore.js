@@ -44,7 +44,7 @@ const uploadHighscore = async (newScore) => {
 		 const docRef = doc(db, "Highscore", "Current")
 
 		 let result = await updateDoc(docRef, {
-		    score: newScore
+		    score: parseInt(newScore)
 		  });
 		  
 		 return newScore;
